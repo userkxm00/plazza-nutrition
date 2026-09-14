@@ -17,7 +17,7 @@ Webhook ingress record
       ↓
 Deduplication / idempotency check
       ↓
-Acknowledge safely
+Safely acknowledge accepted ingress
       ↓
 Async processing
       ↓
@@ -59,7 +59,19 @@ Provider event identifiers should be used where guaranteed; otherwise use a docu
 
 Processing failure must be observable and retryable. A failed webhook should remain inspectable without causing the provider request to trigger repeated business mutations blindly.
 
+Use bounded retries. After the configured maximum attempts, move the event to a **dead-letter / manual-review state** with enough diagnostics to safely retry or resolve it later.
+
 Unknown event types should be safely recorded and surfaced for review rather than silently discarded.
+
+### Signature verification failures
+
+Repeated signature/authentication failures must raise an operational/security alert rather than being treated as ordinary processing errors. The system should retain only the diagnostic data permitted by the webhook retention policy.
+
+## Raw payload retention
+
+Raw webhook payloads may contain personally identifiable information such as names, phone numbers or addresses. Define a documented retention period and access policy before production webhooks are enabled.
+
+Prefer storing only the minimum raw payload/reference needed for debugging and replay. Retained payloads must be access-controlled and excluded from ordinary application logs.
 
 ## Relationship to local truth
 The webhook is evidence from an external provider. The application remains authoritative for local order/shipment records. Provider-specific events are normalized into the local delivery/tracking domain.
