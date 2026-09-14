@@ -1,7 +1,7 @@
 # ADR 0001 — Build vs Buy (Odoo / ERPNext / Custom)
 
 ## Status
-Accepted: custom application remains the planned direction, subject to final merchant validation during discovery.
+Accepted: custom application remains the planned direction, subject to final merchant validation at the Phase 0 exit gate before implementation is locked.
 
 ## Context
 Plazza Nutrition needs a customer-facing Arabic/French storefront plus operational workflows specific to an Algerian COD retailer:
@@ -60,12 +60,31 @@ General-purpose ERP products such as Odoo and ERPNext can cover substantial back
 - we own testing, security, backup/recovery and operational correctness;
 - ERP/accounting functionality must not be recreated indiscriminately.
 
+## Relative effort / cost framing
+
+No precise person-week or monetary estimate should be treated as a fact before merchant validation and a technical spike. However, the important planning comparison is:
+
+> **Odoo/ERPNext customization may reduce the amount of back-office code we write, but a highly customized storefront + Algerian COD/delivery workflows + provider integration + POS experience still creates substantial engineering effort.**
+
+The trade-off is therefore not simply **"custom = expensive / ERP = cheap"**. ERP introduces platform configuration, customization and upgrade costs; custom software introduces initial implementation plus long-term ownership of testing, security, backups, migrations and operations.
+
+The Phase 0 decision should compare the realistic total effort and operational ownership for the actual Plazza requirements, not only initial build hours.
+
 ## Decision
 Proceed with the custom modular monolith for the operational commerce system, while deliberately **not** attempting to become a full ERP/accounting replacement.
 
 The system should implement only the business capabilities that materially differentiate or support Plazza Nutrition: storefront, COD orders, delivery operations, shared inventory, POS, purchasing/receiving, returns/exchanges, cash operations, operational finance/profitability and staff controls.
 
-Licensed accounting, tax and statutory requirements must be validated separately with the merchant/accounting professional and integrated at the appropriate boundary rather than silently reinvented.
+Licensed accounting, tax and statutory requirements must be validated separately with the merchant/accounting professional and integrated at the appropriate boundary rather than silently reinventing them.
+
+## Validation gate
+
+The decision is considered implementation-locked only when Phase 0 confirms:
+
+- the merchant accepts the custom-vs-ERP trade-off;
+- the documented requirements still fit the custom scope;
+- no newly discovered requirement makes an ERP materially more appropriate;
+- the selected technology stack and operational ownership model are approved.
 
 ## Consequence
 The custom path is approved only with strict scope discipline and staged delivery. If discovery later shows that most requirements are already satisfied by an ERP with acceptable customization and UX, this ADR can be revisited before implementation is locked.
