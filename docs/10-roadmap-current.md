@@ -1,6 +1,6 @@
 # Plazza Nutrition — Current Roadmap
 
-> Canonical roadmap after the external architecture review and internal reconciliation. The older `docs/10-roadmap.md` is retained as historical draft because the GitHub contents endpoint reported a revision conflict while replacing it.
+> **Current reviewed roadmap.** Use this file as the planning reference while `docs/10-roadmap.md` is retained as a historical draft whose replacement is blocked by the current GitHub Contents API revision conflict. Once the repository is updated through a normal Git workflow, `docs/10-roadmap.md` should be reconciled to this content and become the only canonical roadmap.
 
 ## Phase 0 — Discovery & architecture
 
@@ -12,12 +12,14 @@
 - Confirm return/exchange policy.
 - Validate ZR Express API capabilities and merchant requirements.
 - Define administrative geography dataset (wilayas/communes) separately from courier coverage.
+- Define the 58↔69 administrative transition / alias strategy.
 - Define webhook ingress/idempotency model.
 - Compare build-vs-buy options and record the decision (ADR 0001).
+- Define success KPIs and how baseline measurements will be captured from the first operational release.
 - Define domain model and invariants.
 - Choose final stack using documented ADRs.
 
-**Exit:** approved requirements + architecture + database design + explicit open decisions.
+**Exit:** approved requirements + architecture + database design + explicit open decisions + KPI definitions + validated build-vs-buy decision + final stack decision.
 
 ## Phase 1 — Production core / first operational release
 
@@ -50,13 +52,14 @@
 - Reviews
 - Basic dashboard
 - System settings foundation
+- KPI baseline capture/reporting
 
 ### Operational foundations
 - Staging environment from early implementation.
 - CI checks and migrations under version control.
 - Automated tests for critical order/inventory flows before release.
 
-**Exit:** a real end-to-end online order can be created, processed and reflected in inventory, with the release path validated in staging. Production is enabled only after the operational acceptance gate is passed.
+**Exit:** a real end-to-end online order can be created, processed and reflected in inventory, with the release path validated in staging and baseline KPIs measurable. Production is enabled only after the operational acceptance gate is passed.
 
 ## Phase 2 — Delivery operations
 
@@ -123,7 +126,7 @@ V1 POS is online-first. Full offline synchronization is explicitly out of scope 
 - Session/security hardening.
 - Rate limiting and abuse controls.
 - Backups and restore drills.
-- Operational alerts and KPI baseline.
+- KPI review and operational reliability review.
 
 ## Phase 7 — Optional integrations
 
@@ -164,6 +167,7 @@ The system should not be presented as production-ready until:
 - Monitoring/error handling exists.
 - Known limitations are documented.
 - Geography data source/version is recorded.
+- KPI baseline has been established.
 - The client has a documented operational procedure for orders, returns, stock and cash reconciliation.
 - The client has accepted the operational workflow and owns production infrastructure/accounts.
 
