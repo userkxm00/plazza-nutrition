@@ -15,6 +15,7 @@ For the initial production release:
 - The UI should detect connectivity loss clearly and avoid pretending a sale was completed when the server did not commit it.
 - Cashiers must have an operational fallback procedure for a temporary outage (for example, manual receipt/log procedure agreed with the owner).
 - Local draft/cart state may be retained for usability, but drafts are not authoritative sales and must not alter stock until committed by the backend.
+- If connectivity returns while a local draft exists, the client must **not automatically convert the draft into an authoritative sale**. The cashier must explicitly review and confirm submission so an outage cannot silently create a duplicate or unexpected sale.
 - The architecture must keep the POS domain sufficiently isolated that a future offline mode can be evaluated without redesigning the core sales/inventory model.
 
 ## Why not full offline V1?
