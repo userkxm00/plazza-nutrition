@@ -1,10 +1,10 @@
-# Plazza Nutrition — Final Architecture Audit v0.1
+# Plazza Nutrition — Final Architecture Audit v0.2
 
-> Status: **Approved for implementation planning, not yet for blind code generation.**
+> Status: **Approved for implementation.**
 
 ## Purpose
 
-This document is the final consistency review of the project specification before assigning implementation work to a coding agent. It is intentionally an audit, not a coding plan.
+This document is the final consistency review of the project specification before assigning implementation work to a coding agent. The remaining business-policy decisions from v0.1 have now been closed in `docs/28-final-business-decisions.md`.
 
 ## 1. Consistency check
 
@@ -45,24 +45,35 @@ Authentication, authorization, idempotency, validation, webhook verification, au
 
 The proposed deployment can host the modular monolith, PostgreSQL, object storage, asynchronous jobs, and monitoring without requiring microservices or Kubernetes.
 
-## 2. Remaining decisions that must be explicit before production
+## 2. Business decisions now closed
 
-These are the remaining business decisions that should not be invented by an implementation agent:
+The implementation baseline is now explicit for:
 
-1. Exact inventory reservation/availability behavior at checkout vs confirmation.
-2. Final inventory costing method used for authoritative profitability reporting.
-3. Return/refund time window and COD refund procedure.
-4. Exact exchange policy, including price differences.
-5. Failed-delivery cost allocation.
-6. Exact invoice/receipt numbering requirements.
-7. Merchant-specific ZR API credentials/capabilities and webhook contract.
-8. Exact product catalog attributes, especially supplement facts and variants.
-9. Final staff roles and permission matrix after observing real staff workflows.
-10. Legal/accounting requirements that must be verified by the merchant or qualified advisor.
+1. COD stock reservation: no authoritative reservation at cart/PENDING stage; confirmation performs the transactional stock commitment.
+2. Inventory costing: perpetual moving weighted-average cost per variant/location.
+3. Returns/refunds: 15-calendar-day default request window from confirmed delivery, with configured eligibility and controlled COD refund workflow.
+4. Exchanges: same default return window; customer pays a positive difference, receives a refund/credit for a negative difference, or no adjustment for equal value.
+5. Failed delivery: merchant absorbs actual courier delivery/return cost as operational delivery cost/loss; uncollected customer shipping is not revenue.
+6. Numbering: separate immutable monotonic order, invoice and receipt sequences.
+7. ZR integration: provider adapter; actual merchant credentials/API/webhook contract is required before live integration is enabled.
+8. Product catalog: structured supplement-aware baseline attributes are defined.
+9. Staff roles: OWNER, MANAGER, ORDER_OPERATOR, CASHIER, WAREHOUSE_OPERATOR, FINANCE.
+10. Legal/accounting: the system remains an operational commerce system; merchant-specific tax/statutory details must be verified before production activation.
 
-The agent may implement configurable boundaries for these, but must not silently invent business policy.
+See `docs/28-final-business-decisions.md` for the authoritative definitions.
 
-## 3. Architecture risks to monitor
+## 3. External validation gates before production
+
+Only merchant-specific or externally controlled facts remain to be supplied/validated:
+
+- current ZR merchant credentials and exact API/webhook contract;
+- merchant tax/VAT/accounting status and required statutory document fields;
+- applicability of any cash-register/software integrity, security, conservation and archiving requirements;
+- final published terms, return exceptions and merchant legal information.
+
+These are **validation inputs**, not open architecture decisions. The implementation agent must not invent them.
+
+## 4. Architecture risks to monitor
 
 ### R1 — Scope explosion
 
@@ -70,11 +81,11 @@ The project includes storefront + POS + inventory + delivery + finance. The solu
 
 ### R2 — Financial correctness
 
-Profitability must be derived from immutable transactional facts and an explicit costing policy. Reports must distinguish authoritative values from estimates.
+Profitability must be derived from immutable transactional facts and the approved moving-average costing policy. Reports must distinguish authoritative values from estimates.
 
 ### R3 — Inventory concurrency
 
-Overselling and duplicate reservations are high-risk. Transactions, appropriate locking/constraints, and idempotency must be tested before production.
+Overselling is high-risk. Confirmation and POS completion require transactional stock checks, appropriate locking/constraints, and idempotency tests before production.
 
 ### R4 — External courier coupling
 
@@ -92,9 +103,9 @@ Admin, finance, stock, webhook, and integration-secret paths require explicit th
 
 Production migrations must be reversible where practical, tested against staging data, and accompanied by backup/restore procedures.
 
-## 4. Definition of done for the architecture phase
+## 5. Definition of done for the architecture phase
 
-The architecture phase is considered complete only when all of the following exist:
+The architecture phase is now considered complete because the project contains:
 
 - business requirements;
 - domain model;
@@ -109,9 +120,10 @@ The architecture phase is considered complete only when all of the following exi
 - repository/project structure;
 - coding-agent handbook;
 - implementation roadmap;
-- explicit list of unresolved business decisions.
+- explicit business decisions;
+- explicit external-validation gates.
 
-## 5. What the coding agent is allowed to do
+## 6. What the coding agent is allowed to do
 
 The agent may:
 
@@ -121,25 +133,26 @@ The agent may:
 - add tests corresponding to agreed behavior;
 - refactor code without changing externally observed business rules;
 - document implementation details;
-- surface ambiguity before making consequential decisions.
+- surface missing external evidence at the defined validation boundaries.
 
-## 6. What the coding agent is not allowed to do
+## 7. What the coding agent is not allowed to do
 
 The agent must not:
 
 - replace the database/ORM/framework because it prefers another;
 - introduce microservices or Kubernetes without an ADR;
 - add SaaS dependencies without approval;
-- hardcode courier rates or business policies that belong in configuration;
+- hardcode courier rates or merchant-specific legal/tax values;
 - trust client-provided totals, stock, discounts, costs, or permissions;
 - mutate stock without traceable inventory movements;
 - rewrite historical financial/order facts;
 - bypass migrations;
 - disable tests to make CI pass;
 - commit secrets or real customer data;
-- copy external repositories wholesale into the project.
+- copy external repositories wholesale into the project;
+- override the business decisions in `docs/28-final-business-decisions.md`.
 
-## 7. First implementation boundary
+## 8. First implementation boundary
 
 The first implementation task should be **bootstrap only**:
 
@@ -155,7 +168,7 @@ The first implementation task should be **bootstrap only**:
 
 No storefront feature, POS feature, payment feature, ZR integration, or financial feature should be built in the bootstrap task.
 
-## 8. First vertical slice after bootstrap
+## 9. First vertical slice after bootstrap
 
 Recommended first vertical slice:
 
@@ -165,7 +178,7 @@ Recommended first vertical slice:
 
 Reason: it validates the complete technical path with relatively low business risk before introducing money/inventory concurrency.
 
-## 9. Review rule
+## 10. Review rule
 
 After each vertical slice, the agent must report:
 
