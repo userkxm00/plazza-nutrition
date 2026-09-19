@@ -1,0 +1,465 @@
+نعم، راجعت التوجيه المرفق، وخطة المشروع والملفات الحالية. النتيجة الصريحة:
+
+> **المشروع لا يحتوي على صفحات منسية على مستوى الـ routes الرئيسية، لكن لا يمكن اعتبار كل شاشة وكل حقل وكل حالة مصممة ومراجعة بالكامل بعد.**  
+> الموجود حالياً هو تغطية واسعة جداً بواجهات تجريبية، مع بعض الوحدات التي ما زالت تحتاج جولة تصميم وتدقيق مستقلة.
+
+## ما تم تغطيته فعلياً
+
+### واجهة العميل
+المسارات الرئيسية موجودة:
+
+- الصفحة الرئيسية
+- المتجر
+- التصنيفات
+- البحث ونتائج البحث
+- تفاصيل المنتج
+- السلة
+- Checkout
+- Confirmation
+- تسجيل الدخول
+- إنشاء الحساب
+- استعادة الوصول
+- التحقق
+- الحساب
+- الملف الشخصي
+- العناوين
+- الطلبات
+- تفاصيل الطلب
+- الإرجاع
+- الاستبدال
+- الآراء
+- العروض
+- التوصيل
+- المساعدة
+- التواصل
+- عن المتجر
+- السياسات
+- الشروط
+- الخصوصية
+- صفحة 404
+
+ولا يوجد Wishlist في وثائق المشروع كمتطلب مؤكد، لذلك عدم وجوده ليس نقصاً حالياً.
+
+### العمليات والإدارة
+المسارات موجودة أيضاً:
+
+- Dashboard
+- Orders
+- Customers
+- Products
+- Categories & Brands
+- Inventory
+- Movements & Adjustments
+- Purchasing
+- Receiving
+- Batches & Expiry
+- Delivery & Shipments
+- Returns
+- Exchanges
+- Refunds
+- POS
+- Cash Closing
+- Finance
+- Expenses
+- Profitability
+- Reports
+- Coupons
+- Reviews Moderation
+- Staff
+- Roles
+- Notifications
+- Audit
+- Settings
+
+هذه التغطية موثقة في:
+
+`plazza-nutrition-main/docs/DESIGN_COVERAGE.md`
+
+## ما هو مكتمل بصرياً بدرجة جيدة
+
+- الهوية البصرية الأساسية.
+- ألوان Plazza Nutrition.
+- العلاقة بين الواجهة التجارية وواجهة العمليات.
+- RTL/LTR على مستوى التطبيق.
+- Header وnavigation وmobile bottom navigation.
+- بطاقات المنتجات.
+- ترتيب الأسعار والتوفر.
+- تفاصيل المنتج الأساسية.
+- السلة وتعديل الكميات.
+- Checkout الخاص بالدفع عند الاستلام.
+- بعض حالات النجاح والفشل والبيانات الفارغة.
+- شاشة العمليات الرئيسية.
+- شاشة الطلبات وتفاصيل الطلب.
+- POS بصري تجريبي.
+- Finance وReports كواجهات قراءة محلية.
+- حالات البيانات التجريبية والحدود مع الخادم.
+- المستندات المطلوبة موجودة:
+  - `DESIGN_DISCOVERY.md`
+  - `DESIGN_SYSTEM.md`
+  - `DESIGN_COVERAGE.md`
+  - `DESIGN_QA.md`
+  - `DESIGN_DECISIONS.md`
+  - `ANTIGRAVITY_FRONTEND_RULES.md`
+  - تقرير التحول البصري
+
+## ما لم يكتمل بالكامل بعد
+
+### 1. الوحدات التشغيلية الأقل استخداماً ما زالت فرنسية فقط جزئياً
+
+في `coverage-surfaces.tsx` توجد وحدات مثل:
+
+- Inventory
+- Purchasing
+- Receiving
+- Batches
+- Delivery
+- Returns
+- Exchanges
+- Refunds
+- POS
+- Cash
+- Finance
+- Coupons
+- Moderation
+- Staff
+
+هذه الوحدات موجودة بصرياً، لكن عناوينها وحقولها وأزرارها ما زالت تحتوي على نصوص فرنسية ثابتة، ولا تستقبل `lang` بالكامل مثل شاشة Orders وSettings.
+
+لذلك لا أستطيع تأكيد أن العربية مكتملة في **كل العمليات** بعد.
+
+### 2. تفاصيل الطلب للعميل أبسط من المطلوب
+
+شاشة العميل `/orders/:id` تعرض:
+
+- رقم الطلب
+- حالة الطلب
+- timeline مبسط
+- ملاحظة محلية
+
+لكنها لا تعرض بعد بشكل كامل:
+
+- عناصر الطلب
+- السعر الثابت لكل عنصر
+- الإجمالي
+- طريقة الدفع
+- تفاصيل التوصيل
+- العنوان
+- سجل الأحداث
+- حالات فشل التوصيل
+- إلغاء الطلب حسب الصلاحية
+
+هذه المعلومات موجودة بشكل أفضل في تفاصيل الطلب داخل العمليات، وليست مكتملة في تجربة العميل.
+
+### 3. Product Detail ما زال يحتوي على placeholders
+
+الموجود:
+
+- المنتج
+- السعر
+- الصيغة
+- الكمية
+- التوفر
+- الإضافة للسلة
+- المراجعات
+- المنتجات ذات الصلة
+
+لكن ما زال ناقصاً أو مؤجلاً:
+
+- صور حقيقية أو gallery حقيقية
+- Zoom
+- Brand حقيقي
+- SKU فعلي
+- Barcode فعلي
+- nutrition facts حقيقية
+- ingredients
+- usage instructions
+- discount/compare-at price حقيقي
+- قواعد variants حقيقية
+- حالة unavailable variant كاملة
+
+وهذا مقصود لأن بيانات التاجر والمنتجات الحقيقية لم تصل بعد، لكن يجب اعتباره **غير مكتمل تجارياً**.
+
+### 4. Checkout يحتاج حالات أوسع
+
+الموجود:
+
+- الاسم
+- الهاتف
+- العنوان
+- الولاية
+- البلدية
+- ملاحظة التوصيل
+- التوصيل للمنزل
+- نقطة الاستلام
+- COD
+- الملخص
+- حالة النجاح والفشل
+
+ما يحتاج استكمالاً:
+
+- اختيار Guest أو Account
+- التحقق التفصيلي لكل حقل
+- أخطاء الولاية والبلدية
+- عدم توفر التوصيل لمنطقة معينة
+- فشل حساب الشحن
+- إعادة المحاولة
+- حالات العنوان غير الصالح
+- تفاصيل stop-desk حقيقية عندما يحددها التاجر
+- حالات فشل الدفع إذا تمت إضافة وسيلة دفع أخرى
+
+### 5. Orders Operations لا يحتوي كل الفلاتر المطلوبة
+
+الموجود حالياً:
+
+- البحث
+- فلتر الحالة
+- جدول الطلبات
+- فتح التفاصيل
+- فلتر بصري محلي
+
+لكن المطلوب في التوجيه يشمل أيضاً:
+
+- العميل
+- الدفع
+- التوصيل
+- المبلغ
+- التاريخ
+- bulk actions
+- order action menu
+- تغيير الحالة حسب الصلاحية
+- إلغاء الطلب
+- failed delivery
+- tracking
+
+### 6. Inventory وReceiving وPurchasing موجودة كواجهات عرض أكثر من workflows
+
+الحقول مذكورة في المصفوفة، لكن ليست كلها workflows مكتملة:
+
+- damaged stock
+- committed/released stock
+- supplier selection
+- purchase order creation
+- partial receiving
+- discrepancy resolution
+- batch assignment
+- expiry assignment
+- receiving notes
+- confirmation/error states
+
+### 7. POS يحتاج تعميقاً وظيفياً بصرياً
+
+يوجد POS جيد كـ fixture، لكن ينقصه:
+
+- كميات مستقلة لكل منتج في بعض المسارات
+- barcode scanning flow فعلي بصرياً
+- keyboard shortcuts مكتملة
+- customer lookup
+- returns/exchanges من POS
+- receipt preview كامل
+- payment method selection
+- cash session state
+- offline queue/state كما هو موثق
+- منع الإجراء حسب حالة الصندوق
+
+### 8. Staff وRoles ما زالت Fixture
+
+الموجود:
+
+- قائمة الموظفين
+- الأدوار
+- نطاق الوصول
+- Forbidden state
+
+الناقص بصرياً:
+
+- Invite staff
+- Disable staff
+- Edit role
+- Permission matrix
+- Role detail
+- confirmation dialogs
+- audit reason
+- session/device controls
+- role-specific navigation variations
+
+### 9. الحالات موجودة ك primitives، وليست مرتبطة بكل شاشة
+
+لدينا `StateStrip` وحالات:
+
+- loading
+- empty
+- error
+- success
+- unauthorized
+- forbidden
+
+لكن حالياً لا توجد نسخة مخصصة ومراجعة لكل حالة في كل route. بعض شاشات العمليات تعرض success أو empty بشكل عام فقط، بينما التوجيه يطلب مراجعة كل شاشة على حدة.
+
+ينقصنا إثبات بصري مستقل لحالات:
+
+- network failure
+- failed checkout
+- failed delivery
+- expired product
+- expiring batch
+- delivery unavailable
+- unavailable variant
+- pending refund
+- rejected return
+- rejected exchange
+- disabled actions
+- validation error لكل field
+
+### 10. الترجمة العربية ليست مكتملة في كل الوحدات
+
+العربية مكتملة بدرجة جيدة في:
+
+- Header
+- storefront shell
+- account
+- authentication
+- cart
+- checkout
+- aftercare
+- orders الرئيسية
+- order detail operations
+- notifications
+- audit
+- settings
+
+لكنها ليست مكتملة بعد في بعض شاشات العمليات المذكورة أعلاه، حيث توجد عناوين وأزرار وtable headers بالفرنسية فقط.
+
+### 11. المراجعة البصرية الكاملة لم تتم لكل المقاسات
+
+التوجيه يطلب:
+
+- 375
+- 390
+- 430
+- 768
+- 1024
+- 1280
+- 1440
+- wide desktop
+- French LTR
+- Arabic RTL
+- keyboard
+- reduced motion
+
+المشروع يحتوي على قواعد responsive جيدة، وتمت معاينة بعض الشاشات، لكن لا يوجد بعد سجل screenshot/QA كامل لكل route ولكل هذه الحالات. لذلك لا يصح إعلان أن كل جزء تمت مراجعته بصرياً.
+
+## اقتراحاتي التطويرية بالترتيب
+
+### الأولوية 1 — إغلاق فجوات التصميم الحالية
+
+قبل إضافة backend أو صفحات جديدة:
+
+1. إكمال الترجمة العربية لكل وحدات العمليات.
+2. إكمال تفاصيل طلب العميل.
+3. إكمال حالات Checkout.
+4. تحويل كل وحدات Inventory/Purchasing/Delivery/POS إلى workflows واضحة.
+5. إضافة الحالات الفعلية لكل شاشة وليس فقط `StateStrip` مشترك.
+6. إضافة overlays منفصلة بوضوح:
+   - confirmation
+   - destructive confirmation
+   - stock adjustment
+   - return
+   - exchange
+   - payment
+   - cash close
+   - product selector
+   - customer selector
+   - filter drawer
+   - notification panel
+
+### الأولوية 2 — إكمال الحقول
+
+أقترح إنشاء مراجعة field-by-field لكل مجموعة:
+
+- بيانات العميل
+- بيانات المنتج
+- Checkout
+- الطلب
+- المخزون
+- الشراء والاستلام
+- POS والصندوق
+- المالية
+- الموظفين والصلاحيات
+
+لكل حقل يجب وجود:
+
+- label
+- control
+- placeholder عند الحاجة
+- required/optional
+- validation
+- disabled
+- error
+- success
+- mobile treatment
+- Arabic label
+- French label
+
+### الأولوية 3 — QA حقيقي بمصفوفة تغطية
+
+نحتاج جدولاً عملياً لكل route:
+
+| الشاشة | Desktop | Mobile | RTL | LTR | Empty | Loading | Error | Success | Fields | Overlay | A11y |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+
+ولا يتم وضع `complete` إلا بعد وجود screenshot أو مراجعة فعلية.
+
+### الأولوية 4 — تجميد مدخلات التاجر
+
+قبل تصميم النسخة التجارية النهائية نحتاج من التاجر:
+
+- صور المنتجات
+- أسماء العلامات
+- SKU وBarcode
+- الأسعار
+- الأسعار القديمة والخصومات
+- nutrition facts
+- ingredients
+- usage
+- delivery zones
+- delivery fees
+- communes/stop-desks
+- courier capabilities
+- coupon rules
+- legal copy
+- return/exchange policy
+- payment methods
+
+بدون هذه البيانات، يجب إبقاء الواجهات معلّمة كـ fixture وعدم اختراع قيم حقيقية.
+
+### الأولوية 5 — بعد إغلاق التصميم فقط
+
+بعد اكتمال الجولة البصرية:
+
+1. ربط API العقود المعتمدة.
+2. إضافة authentication حقيقية.
+3. إضافة database persistence.
+4. حساب الأسعار والمخزون والشحن من الخادم.
+5. إضافة الصلاحيات الفعلية.
+6. إضافة delivery adapter.
+7. إضافة payment integration إن تم اعتمادها.
+8. إضافة automated tests للـ checkout والطلبات وPOS والمخزون.
+9. staging QA.
+10. security review.
+
+## الخلاصة
+
+الخطة العامة صحيحة، والتوثيق الأساسي موجود، ولا توجد مجموعة routes رئيسية منسية.
+
+لكن لا أنصح باعتبار المشروع “مصمماً بالكامل” بعد. التوصيف الأدق هو:
+
+- **التغطية المعمارية:** قوية.
+- **الهوية والنظام البصري:** موجودان ومتماسكان.
+- **الواجهات الرئيسية:** موجودة.
+- **العمليات:** موجودة كـ visual fixtures، وليست workflows مكتملة في كل الوحدات.
+- **العربية:** جيدة في المسارات الأساسية، وغير مكتملة في بعض وحدات العمليات.
+- **الحالات:** primitives موجودة، لكن ليس كل route مراجعاً بكل حالاته.
+- **الحقول:** موثقة في `DESIGN_COVERAGE.md`، لكن بعضها ما زال placeholder أو غير منفذ.
+- **QA:** جزئي، وليس matrix كامل لكل الشاشات والمقاسات واللغات.
+
+أقوى اقتراح هو تنفيذ **جولة إغلاق التصميم** أولاً، لا إضافة ميزات جديدة. بعد إغلاق الترجمة، الحقول، الحالات، overlays، وQA matrix يمكن اعتبار الواجهة جاهزة فعلاً للتسليم إلى مرحلة backend.

@@ -1,0 +1,216 @@
+ما لم يكتمل بالكامل بعد
+1. الوحدات التشغيلية الأقل استخداماً ما زالت فرنسية فقط جزئياً
+في coverage-surfaces.tsx توجد وحدات مثل:
+
+Inventory
+Purchasing
+Receiving
+Batches
+Delivery
+Returns
+Exchanges
+Refunds
+POS
+Cash
+Finance
+Coupons
+Moderation
+Staff
+هذه الوحدات موجودة بصرياً، لكن عناوينها وحقولها وأزرارها ما زالت تحتوي على نصوص فرنسية ثابتة، ولا تستقبل lang بالكامل مثل شاشة Orders وSettings.
+
+لذلك لا أستطيع تأكيد أن العربية مكتملة في كل العمليات بعد.
+
+2. تفاصيل الطلب للعميل أبسط من المطلوب
+شاشة العميل /orders/:id تعرض:
+
+رقم الطلب
+حالة الطلب
+timeline مبسط
+ملاحظة محلية
+لكنها لا تعرض بعد بشكل كامل:
+
+عناصر الطلب
+السعر الثابت لكل عنصر
+الإجمالي
+طريقة الدفع
+تفاصيل التوصيل
+العنوان
+سجل الأحداث
+حالات فشل التوصيل
+إلغاء الطلب حسب الصلاحية
+هذه المعلومات موجودة بشكل أفضل في تفاصيل الطلب داخل العمليات، وليست مكتملة في تجربة العميل.
+
+3. Product Detail ما زال يحتوي على placeholders
+الموجود:
+
+المنتج
+السعر
+الصيغة
+الكمية
+التوفر
+الإضافة للسلة
+المراجعات
+المنتجات ذات الصلة
+لكن ما زال ناقصاً أو مؤجلاً:
+
+صور حقيقية أو gallery حقيقية
+Zoom
+Brand حقيقي
+SKU فعلي
+Barcode فعلي
+nutrition facts حقيقية
+ingredients
+usage instructions
+discount/compare-at price حقيقي
+قواعد variants حقيقية
+حالة unavailable variant كاملة
+وهذا مقصود لأن بيانات التاجر والمنتجات الحقيقية لم تصل بعد، لكن يجب اعتباره غير مكتمل تجارياً.
+
+4. Checkout يحتاج حالات أوسع
+الموجود:
+
+الاسم
+الهاتف
+العنوان
+الولاية
+البلدية
+ملاحظة التوصيل
+التوصيل للمنزل
+نقطة الاستلام
+COD
+الملخص
+حالة النجاح والفشل
+ما يحتاج استكمالاً:
+
+اختيار Guest أو Account
+التحقق التفصيلي لكل حقل
+أخطاء الولاية والبلدية
+عدم توفر التوصيل لمنطقة معينة
+فشل حساب الشحن
+إعادة المحاولة
+حالات العنوان غير الصالح
+تفاصيل stop-desk حقيقية عندما يحددها التاجر
+حالات فشل الدفع إذا تمت إضافة وسيلة دفع أخرى
+5. Orders Operations لا يحتوي كل الفلاتر المطلوبة
+الموجود حالياً:
+
+البحث
+فلتر الحالة
+جدول الطلبات
+فتح التفاصيل
+فلتر بصري محلي
+لكن المطلوب في التوجيه يشمل أيضاً:
+
+العميل
+الدفع
+التوصيل
+المبلغ
+التاريخ
+bulk actions
+order action menu
+تغيير الحالة حسب الصلاحية
+إلغاء الطلب
+failed delivery
+tracking
+6. Inventory وReceiving وPurchasing موجودة كواجهات عرض أكثر من workflows
+الحقول مذكورة في المصفوفة، لكن ليست كلها workflows مكتملة:
+
+damaged stock
+committed/released stock
+supplier selection
+purchase order creation
+partial receiving
+discrepancy resolution
+batch assignment
+expiry assignment
+receiving notes
+confirmation/error states
+7. POS يحتاج تعميقاً وظيفياً بصرياً
+يوجد POS جيد كـ fixture، لكن ينقصه:
+
+كميات مستقلة لكل منتج في بعض المسارات
+barcode scanning flow فعلي بصرياً
+keyboard shortcuts مكتملة
+customer lookup
+returns/exchanges من POS
+receipt preview كامل
+payment method selection
+cash session state
+offline queue/state كما هو موثق
+منع الإجراء حسب حالة الصندوق
+8. Staff وRoles ما زالت Fixture
+الموجود:
+
+قائمة الموظفين
+الأدوار
+نطاق الوصول
+Forbidden state
+الناقص بصرياً:
+
+Invite staff
+Disable staff
+Edit role
+Permission matrix
+Role detail
+confirmation dialogs
+audit reason
+session/device controls
+role-specific navigation variations
+9. الحالات موجودة ك primitives، وليست مرتبطة بكل شاشة
+لدينا StateStrip وحالات:
+
+loading
+empty
+error
+success
+unauthorized
+forbidden
+لكن حالياً لا توجد نسخة مخصصة ومراجعة لكل حالة في كل route. بعض شاشات العمليات تعرض success أو empty بشكل عام فقط، بينما التوجيه يطلب مراجعة كل شاشة على حدة.
+
+ينقصنا إثبات بصري مستقل لحالات:
+
+network failure
+failed checkout
+failed delivery
+expired product
+expiring batch
+delivery unavailable
+unavailable variant
+pending refund
+rejected return
+rejected exchange
+disabled actions
+validation error لكل field
+10. الترجمة العربية ليست مكتملة في كل الوحدات
+العربية مكتملة بدرجة جيدة في:
+
+Header
+storefront shell
+account
+authentication
+cart
+checkout
+aftercare
+orders الرئيسية
+order detail operations
+notifications
+audit
+settings
+لكنها ليست مكتملة بعد في بعض شاشات العمليات المذكورة أعلاه، حيث توجد عناوين وأزرار وtable headers بالفرنسية فقط.
+
+11. المراجعة البصرية الكاملة لم تتم لكل المقاسات
+التوجيه يطلب:
+
+375
+390
+430
+768
+1024
+1280
+1440
+wide desktop
+French LTR
+Arabic RTL
+keyboard
+reduced motion
+المشروع يحتوي على قواعد responsive جيدة، وتمت معاينة بعض الشاشات، لكن لا يوجد بعد سجل screenshot/QA كامل لكل route ولكل هذه الحالات. لذلك لا يصح إعلان أن كل جزء تمت مراجعته بصرياً.

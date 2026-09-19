@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Plazza Nutrition"
+description = "A premium bilingual sports-nutrition storefront and commerce operations workspace, designed for customers, shop staff, and owners."
+version = "1.0.0"
+id = "artifacts/plazza-nutrition"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24845
+
+[services.development]
+run = "pnpm --filter @workspace/plazza-nutrition run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/plazza-nutrition", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/plazza-nutrition/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24845"
+BASE_PATH = "/"

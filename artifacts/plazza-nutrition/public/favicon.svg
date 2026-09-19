@@ -1,0 +1,9 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Plazza Nutrition</title>
+  <desc id="desc">PN geometric mark with a single orange energy stroke.</desc>
+  <rect width="180" height="180" fill="#101A2D"/>
+  <rect x="22" y="22" width="136" height="136" fill="#101A2D" stroke="#101A2D" stroke-width="4"/>
+  <path d="M49 130V50H82C102 50 113 59 113 76C113 93 102 102 82 102H71V130H49ZM71 83H81C88 83 92 81 92 76C92 71 88 69 81 69H71V83Z" fill="#F56A2A"/>
+  <path d="M101 130V50H119L133 99V50H151V130H133L119 81V130H101Z" fill="#F8F4ED"/>
+  <path d="M40 64V40H140V140H40V116" stroke="#F56A2A" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Plazza Nutrition mark</title>
+  <desc id="desc">A geometric PN monogram in orange and off-white inside a deep navy performance frame.</desc>
+  <rect x="12" y="12" width="76" height="76" fill="#101A2D" stroke="#101A2D" stroke-width="2"/>
+  <path fill="#F56A2A" d="M27 72V28h18c11 0 17 5.1 17 14.5S56 57 45 57H39v15H27Zm12-25h5.1c4.1 0 6.3-1.4 6.3-4.5S48.2 38 44.1 38H39v9Z"/>
+  <path d="M58 72V28h11l10 25V28h12v44H80L70 47v25H58Z" fill="#F8F4ED"/>
+  <path d="M22 36V22H78V78H22V64" fill="none" stroke="#F56A2A" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"/>
+</svg>

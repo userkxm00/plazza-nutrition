@@ -1,0 +1,278 @@
+
+سأراجع التوجيه المرفق مقابل خطة المشروع والواجهات الحالية، ثم أعمل مصفوفة فجوات واضحة لكل مسار وحقول وحالات بدل الاكتفاء بقائمة صفحات. سأميّز بين ما صُمّم فعلاً، وما يحتاج تعميقًا بصريًا أو سلوكيًا، وما لا يمكن اعتماده قبل بيانات التاجر أو الـ backend.
+
+
+
+11 actions
+قراءة التوجيه تؤكد أن معيار النجاح ليس وجود route لكل قسم فقط، بل وجود تصميم لكل route مع الحالات، الحقول، الأدوار، الـ dialogs/drawers/sheets، mobile، وRTL/LTR. سأطابق هذه القائمة الآن مع الـ routes والمكونات والوثائق الحالية، وأعطيك حكمًا صريحًا: مكتمل بصريًا، موجود كـ fixture، أو ما زال ناقصًا.
+
+
+
+10 actions
+النتيجة الصريحة من المطابقة: لا توجد عائلة رئيسية منسية، لكن لا أستطيع أن أقول إن كل جزء مكتمل 100% وفق التوجيه؛ بعض الأجزاء موجودة كـ fixture أو شاشة عامة وليست بعد تصميمًا عميقًا لكل الحقول والحالات. سأثبت هذا التفصيل في ملف تدقيق مستقل حتى لا تختفي الفجوات خلف عبارة “كل الصفحات موجودة”.
+
+
+
+Created DESIGN_DIRECTIVE_AUDIT.md
+راجعت التوجيه المرفق بالكامل، وقارنته مع:
+
+الـ routes الحالية
+مكونات storefront وcheckout وaccount
+مكونات العمليات وPOS وinventory وfinance
+ملفات DESIGN_DISCOVERY.md
+DESIGN_SYSTEM.md
+DESIGN_COVERAGE.md
+DESIGN_QA.md
+ANTIGRAVITY_FRONTEND_RULES.md
+التوثيق الحالي للـ API والـ fixture boundary
+وأضفت تقريرًا مستقلًا:
+
+plazza-nutrition-main/docs/DESIGN_DIRECTIVE_AUDIT.md
+
+الحكم الصريح
+لم تُنسَ أي عائلة رئيسية من المنتج
+المشروع يحتوي على تصميم أو تمثيل بصري لكل هذه المجالات:
+
+الصفحة الرئيسية
+المتجر والتصنيفات والبحث
+تفاصيل المنتج
+السلة
+checkout والدفع عند الاستلام
+confirmation
+تسجيل الدخول والتسجيل واستعادة الوصول والتحقق
+الحساب والملف الشخصي والعناوين
+الطلبات وتفاصيل الطلب
+الإرجاع والاستبدال والتقييمات
+العروض والتوصيل والمساعدة والتواصل والسياسات
+operations dashboard
+orders وcustomers وproducts وcategories
+inventory وmovements
+purchasing وreceiving وbatches/expiry
+delivery وshipments
+returns وexchanges وrefunds
+POS وcash reconciliation
+finance وexpenses وprofitability وreports
+staff وroles وpermissions
+notifications وaudit وsettings
+loading/empty/error/success/disabled/unavailable/unauthorized/forbidden
+mobile وdesktop
+العربية RTL والفرنسية LTR
+dialogs وdrawer وبعض النماذج التشغيلية
+لكن لا أعتبر المشروع مكتملًا 100% بعد
+السبب أن التوجيه لا يعتبر route موجودًا = surface مكتملًا. هناك أجزاء تحتاج تعميقًا قبل إعلان اكتمال مرحلة التصميم.
+
+أهم النواقص التي وجدتها
+1. تفاصيل المنتج
+الواجهة الحالية تحتوي على الصورة، الاسم، السعر، الكمية، التوفر، والوصف، لكنها تحتاج عقدًا بصريًا أوضح لهذه الحقول:
+
+العلامة التجارية
+SKU / barcode
+variant منفصل عن الحجم
+السعر السابق
+الخصم
+التقييم وعدد المراجعات
+delivery estimate
+nutrition information
+ingredients
+usage
+related products
+unavailable variant state
+لا يجب اختراع القيم. المطلوب تصميم أماكنها وحالاتها كـ merchant-owned أو pending إلى أن تصل بيانات التاجر.
+
+2. المتجر والبحث
+موجود:
+
+البحث
+التصنيف
+التوفر
+reset
+empty results
+product cards
+ويحتاج:
+
+sort
+pagination أو load more
+mobile filter sheet
+search/network error
+category-specific empty state
+نتيجة بحث غير متوفرة
+توضيح عدد النتائج بعد الفلاتر
+3. Promotions وCoupons
+الموجود حاليًا أقرب إلى information page. التوجيه يتطلب تصميمًا أوضح لـ:
+
+قائمة العروض
+شروط العرض
+فترة الصلاحية
+إدخال coupon
+coupon invalid
+coupon expired
+coupon already used
+promotion unavailable
+4. Customer Orders
+القائمة والتفاصيل موجودة، لكن نحتاج تعميق:
+
+lifecycle timeline
+payment details
+delivery details
+cancellation eligibility
+failed delivery
+tracking/exception
+order actions
+loading/empty/error/not-found
+5. العمليات الداخلية
+كل العائلات موجودة، لكن بعض الشاشات ما زالت generic fixture وتحتاج surfaces منفصلة:
+
+order detail
+product editor
+purchase-order detail
+shipment detail
+batch detail
+cash-session detail
+notification detail/panel
+audit-event detail
+settings sections
+6. الـ dialogs والـ sheets
+تم بناء أساس جيد للـ dialogs وcart drawer، لكن يجب إنهاء التصميم المنفصل لهذه العناصر:
+
+mobile filter sheet
+product selector
+customer selector
+order action menu
+notification panel
+command/search interface
+stock adjustment dialog
+return decision dialog
+exchange decision dialog
+POS payment/receipt dialog
+permission-change dialog
+destructive confirmation لكل إجراء حساس
+7. الأدوار
+لدينا matrix للصلاحيات، لكن يجب إظهار اختلاف التجربة نفسها حسب الدور:
+
+Owner
+Manager
+Order operator
+Cashier
+Warehouse operator
+Finance
+المطلوب ليس فقط جدول صلاحيات، بل اختلاف:
+
+navigation
+actions
+disabled controls
+forbidden states
+task priority
+information density
+8. RTL/LTR
+الأساس موجود: الاتجاه يتغير، والـ layout يستخدم logical properties في أجزاء كثيرة.
+
+لكن يلزم QA مرئي فعلي لكل من:
+
+navigation
+breadcrumbs
+product gallery
+checkout
+tables
+dialogs
+drawers
+POS
+finance/reports
+notifications
+mobile sheets
+كما أن بعض placeholders التشغيلية ما زالت فرنسية الشكل عند التحويل للعربية، وتحتاج مراجعة copy عربية طبيعية.
+
+9. State matrix
+الـ state components موجودة، لكن المطلوب التالي هو ربط كل حالة بكل شاشة فعلية:
+
+loading
+empty
+validation error
+disabled
+unavailable
+retryable/network error
+success
+unauthorized
+forbidden
+not found
+low stock
+out of stock
+expired
+expiring
+unavailable variant
+failed checkout
+failed delivery
+pending return
+pending exchange
+وجود StateStrip عام وحده لا يكفي لإغلاق هذا الشرط.
+
+الحقول التي راجعتها
+المجال	الحالة
+Customer	الاسم والهاتف والعنوان والولاية والبلدية والتوصيل والـ note موجودة؛ stop-desk ما زال unavailable fixture
+Product	الأساس موجود؛ brand وSKU والسعر السابق والخصم وnutrition/ingredients/usage تحتاج تعميقًا
+Cart	الصورة والمنتج والكمية والسعر والإجمالي موجودة؛ coupon وإعادة الحساب النهائي ما زالا fixture
+Order	المرجع والعميل والعناصر والإجمالي والحالة موجودة؛ timeline/history/actions تحتاج تعميقًا
+Inventory	available/reserved/committed/damaged/low/out/expiry موجودة بصريًا؛ authoritative transitions غير موجودة
+Purchasing/Receiving	المورد والـ PO والكميات والفارق والتكلفة والدفعة والملاحظة ممثلة؛ PO detail يحتاج شاشة أعمق
+POS/Cash	السلة والبحث والكميات والدفع والإيصال والـ cash boundary موجودة؛ keyboard/touch وcash detail يحتاجان QA
+Finance	period/channel/revenue والـ unknown COGS/profitability ممثلة بصدق؛ الحسابات الحقيقية مؤجلة للـ API
+Access	staff/roles/permissions/forbidden موجودة؛ اختلاف الواجهات حسب الدور يحتاج تنفيذًا أعمق
+Delivery	shipment/state/destination/exception موجودة؛ provider/tracking الحقيقيان ينتظران العقد التجاري
+اقتراحي لتطوير المشروع
+المرحلة الأولى: Customer trust
+إكمال product detail.
+إضافة sort وpagination وmobile filter sheet.
+بناء promotions/coupons states.
+تعميق orders lifecycle وdetail وfailed delivery.
+المرحلة الثانية: Operations depth
+فصل الشاشات الداخلية المذكورة أعلاه.
+بناء selector/action/decision dialogs.
+إضافة mobile sheets.
+تنفيذ role-based navigation وactions.
+المرحلة الثالثة: Quality gate
+مراجعة كل state لكل route.
+فحص المقاسات:
+375
+390
+430
+768
+1024
+1280
+1440
+مراجعة العربية والفرنسية فعليًا.
+keyboard وscreen-reader وreduced-motion وcontrast.
+اختبارات للمسارات الحرجة.
+المرحلة الرابعة: Backend handoff
+اعتماد catalog والـ media.
+اعتماد geography وdelivery rules.
+اعتماد return/coupon/legal policies.
+ربط API contracts.
+استبدال fixtures بقراءات وmutations authoritative.
+الحفاظ على idempotency وretry في الطلبات والمخزون والدفع والشحن.
+توصية مهمة بخصوص التوجيه المرفق
+التوجيه يقول إن المشروع يجب أن يبدأ من الصفر وأن التنفيذ السابق discarded. لكن الـ workspace الحالي يحتوي بالفعل على frontend foundation وdesign system وتوثيق واسع.
+
+أنصح بعدم حذف أو إعادة بناء المشروع من الصفر. الأفضل الاستمرار على artifact الحالي وإغلاق الفجوات المذكورة، لأن إعادة البداية لن تحل مشكلة الحقول والحالات وستفقد التغطية الموجودة حاليًا.
+
+الخلاصة:
+
+لا توجد عائلة رئيسية منسية.
+التوجيه العام مطبق بشكل جيد على مستوى الهوية والبنية والتغطية.
+لم نصل بعد إلى اكتمال 100% على مستوى كل field/state/role/modal/mobile variant.
+التقرير التفصيلي الجديد يثبت هذه الفجوات بدل إخفائها تحت عبارة “كل الصفحات موجودة”.
+
+
+Worked for 1 minute
+
+Checkpoint made
+in 32 minutes
+
+Pasted--PLAZZA-NUTRITION-DESIGN-FIRST-MASTER-BUILD-DIRECTIVE-R_1789657021030.txt
+انت تعلم اننا نعمل فقط على الديزاين و FRONTEND ؟
+
+KK
+94e7df9c4b
+94e7df9c4b
+Free
+Just now
+نعم، واضح. سأطابق هذا الإصدار المرفق سريعًا مع حدود المرحلة الحالية للتأكد من أن الخطة لا تنزلق إلى backend أو persistence أو business logic، ثم أؤكد لك نطاق العمل بدقة.
+

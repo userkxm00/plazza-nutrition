@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "CIUYqTcEkUI65kb_ynjnP"
+uri = "file://artifacts/plazza-nutrition/public/plazza-mark.svg"
+type = "image"
+title = "Plazza Nutrition — PN mark"
+description = "شعار SVG أصلي لبلازا نيوتريشن: رمز PN هندسي بلون برتقالي داخل إطار كحلي، مناسب للأيقونة والهيدر والطباعة الرقمية."
+logical_id = "446772ab-c99a-4649-828b-7314051f73a9"
+content_hash = "sha256:507a52f17d0665247322c9977245ec6ddb8ab49ab77ef615f71ea230551da733"
+size = 643
+mtime_ms = 1789645693330
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:bd4327a9-4077-459a-afc5-902e2ad1d162/446772ab-c99a-4649-828b-7314051f73a9/f60b25e1-46be-4738-8b14-757cfb284b89"
+storage_version_token = "1789645722082668"
+content_type = "image/svg+xml"

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Plazza Nutrition — nutrition sportive en Algérie</title>
+  <desc id="desc">Carte de partage Plazza Nutrition avec monogramme PN et message sur la nutrition sportive en Algérie.</desc>
+  <rect width="1200" height="630" fill="#101A2D"/>
+  <rect x="56" y="56" width="1088" height="518" fill="#F8F4ED" stroke="#F56A2A" stroke-width="4"/>
+  <rect x="96" y="96" width="164" height="164" fill="#101A2D"/>
+  <path fill="#F56A2A" d="M122 226V130h39c24 0 37 11 37 32s-13 32-37 32h-13v32h-26Zm26-54h11c9 0 14-3 14-10s-5-10-14-10h-11v20Z"/>
+  <path fill="#F8F4ED" d="M190 226v-96h24l22 54v-54h26v96h-24l-22-55v55h-26Z"/>
+  <path d="M112 148V112h132v132h-36" fill="none" stroke="#F56A2A" stroke-width="6" stroke-linecap="square"/>
+  <text x="96" y="366" fill="#101A2D" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="2">PLAZZA</text>
+  <text x="96" y="438" fill="#101A2D" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="2">NUTRITION</text>
+  <text x="100" y="500" fill="#F56A2A" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="4">SPORT · ROUTINE · ALGÉRIE</text>
+</svg>

@@ -1,0 +1,231 @@
+الأشياء التي لم تكتمل بعد
+1. تفاصيل المنتج
+موجودة بصرياً، لكنها تحتاج استكمال الحقول التالية:
+
+العلامة التجارية.
+SKU أو barcode.
+السعر السابق.
+الخصم.
+اختيار variant حقيقي.
+حالة variant غير المتاحة.
+zoom فعلي للصور.
+وقت أو تقدير التوصيل.
+nutrition facts.
+ingredients.
+usage instructions.
+review states الكاملة.
+حالياً هذه المعلومات يجب أن تبقى بانتظار بيانات التاجر، لكن التصميم يحتاج أن يعرض أماكنها وحالاتها بوضوح أكبر.
+
+2. Cart وCheckout
+الموجود جيد كـ local preview، لكن ينقصه:
+
+اختيار Guest أو تسجيل الدخول.
+validation مستقل لكل حقل.
+رسالة خطأ بجانب كل حقل، وليس رسالة عامة فقط.
+اختيار Stop-desk فعلي عندما يكون متاحاً.
+حالة delivery unavailable.
+فشل حساب الشحن مع Retry.
+تحذير إعادة حساب السعر والمخزون.
+منع Checkout عند السلة الفارغة.
+منع checkout عند cart قديم أو منتج غير متوفر.
+عرض واضح للفرق بين:
+Pending.
+Confirmed.
+Failed.
+صفحة confirmation تحتاج:
+reference.
+ملخص الطلب.
+التوصيل.
+الخطوة التالية.
+Retry.
+Print/share إذا كان ذلك مطلوباً لاحقاً.
+3. حساب العميل
+المسارات موجودة، لكن ينقصها تصميم وتفاعل أعمق لـ:
+
+تعديل العنوان فعلياً.
+حذف العنوان مع تأكيد destructive.
+تعيين عنوان افتراضي.
+Logout.
+Session expired.
+منع الوصول بعد انتهاء الجلسة.
+عرض حالة الحساب غير المصرح به بشكل موحد.
+إدارة إعدادات الحساب.
+4. الطلبات
+تفاصيل الطلب جيدة بصرياً، خصوصاً حالة فشل التوصيل التي تم تحسينها، لكن يلزم لاحقاً:
+
+tracking حقيقي عندما يتوفر provider.
+order actions menu كامل.
+notes.
+actor.
+timestamps لكل انتقال.
+reason عند الإلغاء أو الفشل.
+retry delivery workflow.
+إرجاع الطلب من نفس التفاصيل.
+فصل واضح بين order lifecycle وبين return/exchange lifecycle.
+5. Inventory
+الموجود يمثل المتاح والمحجوز وبعض الإشارات، لكن قائمة الحقول الكاملة تحتاج:
+
+Available.
+Reserved.
+Committed.
+Released.
+Damaged.
+Adjustment reason.
+Batch/lot.
+Expiry.
+Source.
+Operator.
+Movement timestamp.
+Confirmation قبل التعديل.
+سجل بعد التعديل.
+حالات low stock وout of stock وexpired وexpiring بطريقة قابلة للفرز والتصفية.
+6. Purchasing وReceiving
+توجد واجهات عامة، لكن التصميم المخصص ما زال يحتاج:
+
+Supplier selector.
+Purchase order detail.
+Expected quantity.
+Received quantity.
+Discrepancy amount.
+Unit cost.
+Batch assignment.
+Expiry assignment.
+Receiving notes.
+Partial receiving.
+Discrepancy resolution.
+Confirmation/error state.
+حالة receipt مغلقة أو تحتاج مراجعة.
+7. POS وCash
+هذا من أهم الأجزاء التي تحتاج تطويراً قبل ربط Backend:
+
+scan/search حقيقي بصرياً.
+customer lookup.
+product selector.
+variant selection.
+quantity control واضح وسريع.
+keyboard-friendly layout.
+touch-friendly layout.
+cash session open.
+operator.
+opening float.
+expected cash.
+actual cash.
+variance.
+close session.
+receipt preview.
+return/exchange من POS.
+حالة online-first واضحة.
+عدم الادعاء بوجود offline commit.
+حالياً يوجد أكثر من تنفيذ قديم/جديد لـ POS داخل الكود، والأفضل توحيده في implementation واحد.
+
+8. Finance وReports
+المظهر موجود، لكن لا يزال يحتاج:
+
+period filter.
+channel filter.
+product filter.
+revenue.
+discounts.
+shipping.
+COGS.
+courier cost.
+refunds.
+expenses.
+cash.
+profitability basis.
+no-data state.
+chart states.
+export/print behavior.
+زر التصدير موجود في بعض المواضع لكنه لا ينفذ فعلياً بعد.
+
+9. Staff وRoles وPermissions
+الموجود يعرض أعضاء وأدواراً، لكن يحتاج تصميم كامل لـ:
+
+Invite staff.
+Disable staff.
+Role scope.
+Permission matrix.
+View/edit per permission.
+Forbidden state حقيقي.
+Actor.
+Reason.
+Audit timestamp.
+Confirmation عند تغيير صلاحية حساسة.
+10. Notifications وAudit وSettings
+موجودة كمشاهد، لكنها تحتاج:
+
+تغيير read/unread فعلي محلياً.
+notification detail.
+فشل provider event.
+audit detail غير قابل للتعديل.
+filters فعلية.
+settings edit state.
+حفظ/إلغاء/خطأ/نجاح لكل إعداد.
+session/security settings.
+مشكلة مهمة في الـ overlays والـ dialogs
+لدينا Overlay عام يغطي عدة حالات، لكنه ليس بعد نظاماً تشغيلياً كاملاً.
+
+ينقصه:
+
+Focus trap.
+فتح التركيز على أول حقل.
+إغلاق بزر Escape.
+إعادة التركيز للعنصر السابق.
+منع scroll للخلفية.
+وصف accessible للـ dialog.
+destructive confirmation منفصلة.
+mobile sheets حقيقية.
+customer selector.
+order selector.
+command/search interface.
+notification panel مستقل.
+mobile filter drawer مستقل.
+لذلك لا ينبغي اعتبار وجود Overlay عام دليلاً على اكتمال كل dialog.
+
+حالة الترجمة والـ RTL
+الأساس موجود، لكن يجب مراجعة RTL فعلياً على:
+
+الجداول.
+الأسهم والـ breadcrumbs.
+product gallery.
+checkout.
+POS.
+dialogs.
+drawers.
+notifications.
+charts.
+pagination.
+اتجاه الأيقونات التي تحمل معنى حركياً.
+التحويل بين fr وar موجود، لكن لم يتم بعد إثبات كل هذه الأسطح بلقطات مراجعة مستقلة.
+
+حالة الـ QA
+تمت مراجعة بصرياً بعض الأسطح:
+
+الصفحة الرئيسية desktop.
+صفحة الطلبات التشغيلية.
+صفحة المنتج mobile.
+تفاصيل طلب فاشل.
+لكن لم تتم مراجعة كل المصفوفة المطلوبة:
+
+French LTR.
+Arabic RTL.
+keyboard-only.
+reduced-motion.
+كل loading/empty/error/success/forbidden states.
+لذلك لا يصح وضع علامة “complete” على كل الصفحات حالياً.
+
+وثائق ما زالت ناقصة
+راجعت الوثائق الأساسية:
+
+DESIGN_DISCOVERY.md
+DESIGN_COVERAGE.md
+DESIGN_SYSTEM.md
+DESIGN_QA.md
+DESIGN_DECISIONS.md
+ANTIGRAVITY_FRONTEND_RULES.md
+لكن ملف التقرير النهائي المطلوب في التوجيه:
+
+DESIGN_TRANSFORMATION_REPORT.md
+غير موجود حالياً.
+
+كما أن التوجيه يطلب توثيق المهارات التصميمية التي تم اختيارها واستخدامها فعلياً، وهذا يحتاج توثيقاً منفصلاً بدلاً من الاكتفاء بذكرها في التوجيه.

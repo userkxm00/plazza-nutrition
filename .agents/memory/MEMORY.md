@@ -1,0 +1,5 @@
+- [Plazza visual direction](plazza-visual-direction.md) — premium athletic identity with restrained motion and static marks in task-critical contexts.
+- [Operations surface routing](operations-surface-routing.md) — verify the active routed operations component before changing parallel coverage surfaces.
+- [SPA SEO shell](spa-seo-shell.md) — keep route-specific canonical metadata dynamic; Vite treats a root canonical href in index.html as an asset.
+- [Vite client directives](vite-source-maps.md) — avoid carrying Next.js `'use client'` directives into Vite components; they can break Rollup source-map reporting.
+- [Ops theme routing](ops-theme2-routing.md) — keep the Theme 2 launcher and dashboard on separate routes so module navigation never silently falls back to Theme 1.

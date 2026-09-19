@@ -1,0 +1,2186 @@
+# PLAZZA NUTRITION
+
+## DESIGN-FIRST MASTER BUILD DIRECTIVE
+
+### Replit = Product Design Studio + Frontend Implementation
+
+### Antigravity = Backend / Core Engineering Continuation
+
+---
+
+# 0. MISSION
+
+You are building the **NEW Plazza Nutrition project from scratch**.
+
+This is NOT a continuation of an old implementation.
+
+The previous implementation is considered discarded and must NOT be repaired, migrated, copied, or treated as the technical foundation.
+
+The new project starts from the approved product/business/architecture documentation.
+
+Your responsibility in this phase is:
+
+> BUILD THE COMPLETE FRONTEND EXPERIENCE FIRST.
+
+The goal is not merely to create a beautiful homepage.
+
+The goal is to create a **complete, coherent, premium, production-quality frontend system for the entire Plazza Nutrition product**, covering:
+
+* customer storefront
+* ecommerce
+* product discovery
+* product details
+* cart
+* checkout
+* customer account
+* orders
+* returns
+* exchanges
+* reviews
+* promotions
+* delivery-related UX
+* POS UX
+* admin
+* inventory
+* purchasing
+* receiving
+* batches/expiry
+* finance
+* profitability
+* reports
+* staff
+* roles
+* notifications
+* audit
+* settings
+* all major loading/empty/error/success states
+* mobile
+* desktop
+* Arabic RTL
+* French LTR
+
+The final frontend must feel like:
+
+> A premium sports nutrition brand + serious ecommerce platform + professional commerce operations system.
+
+NOT:
+
+* generic AI UI
+* generic shadcn template
+* generic SaaS dashboard
+* generic ecommerce starter
+* one beautiful landing page with unfinished internal screens
+
+---
+
+# 1. ABSOLUTE RULE
+
+## DESIGN FIRST.
+
+You must understand the entire product before implementing the UI.
+
+Do NOT immediately start coding the homepage.
+
+Do NOT immediately create random components.
+
+Do NOT invent pages.
+
+Do NOT invent business rules.
+
+Do NOT invent APIs.
+
+Do NOT invent product data.
+
+Do NOT assume what the system does.
+
+First read and understand the documentation.
+
+---
+
+# 2. SOURCE OF TRUTH
+
+The project documentation is the source of truth for:
+
+* product scope
+* business workflows
+* domain concepts
+* roles
+* permissions
+* order lifecycle
+* inventory lifecycle
+* purchasing
+* POS
+* returns
+* exchanges
+* finance
+* delivery
+* notifications
+* reporting
+* security expectations
+* architecture
+* approved business decisions
+
+Before implementation, read the complete documentation package supplied with the project.
+
+At minimum inspect all:
+
+* README
+* business analysis
+* requirements
+* domain model
+* architecture
+* database design
+* integrations
+* security
+* testing
+* deployment
+* business workflows
+* state machines
+* API contracts
+* RBAC
+* final business decisions
+* final architecture decisions
+* implementation readiness
+* AI engineering governance
+* Algeria geography/delivery documentation
+* webhook/idempotency documentation
+* KPI documentation
+* build-vs-buy decisions
+* POS offline policy
+
+If there are additional documentation files, inspect those too.
+
+DO NOT assume the listed files are the entire specification.
+
+---
+
+# 3. IMPORTANT DISTINCTION
+
+There are three different things:
+
+### A. PRODUCT REQUIREMENTS
+
+What the product is supposed to do.
+
+### B. DESIGN
+
+How the user experiences it.
+
+### C. ENGINEERING
+
+How the system actually implements it.
+
+Your current responsibility is primarily:
+
+> A + B → translate the documented product into a complete frontend experience.
+
+Do NOT invent C.
+
+The future Antigravity phase will implement the actual backend/core architecture.
+
+---
+
+# 4. SKILL INSTALLATION — BEFORE DESIGN
+
+Before beginning frontend implementation, inspect the environment for Agent Skills support.
+
+You MUST install/read the relevant design skills first.
+
+## REQUIRED SKILL #1
+
+UI UX Pro Max:
+
+https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
+
+Use it for:
+
+* design system generation
+* product-category reasoning
+* typography
+* color systems
+* UX patterns
+* layout
+* responsive design
+* accessibility
+* interaction patterns
+* visual hierarchy
+* anti-pattern detection
+
+Read the actual skill documentation.
+
+Do not merely mention the repository.
+
+Actually use the relevant skills.
+
+---
+
+# 5. REQUIRED SKILL #2
+
+Taste Skill:
+
+https://github.com/Leonxlnx/taste-skill
+
+Use the relevant skills for:
+
+* high-end visual design
+* redesign
+* frontend design taste
+* anti-AI-slop
+* visual hierarchy
+* distinctive compositions
+* image-driven design
+* frontend polish
+
+Pay particular attention to skills related to:
+
+* redesign-existing-projects
+* high-end-visual-design
+* design-taste-frontend
+* image-to-code
+* frontend visual quality
+
+Again:
+
+READ THEM.
+
+Do not simply install and ignore them.
+
+---
+
+# 6. REQUIRED SKILL #3
+
+Frontend Design Pro:
+
+https://github.com/Krishna-Modi12/frontend-design-pro
+
+Use relevant constraints and validation principles for:
+
+* typography
+* color
+* responsive design
+* accessibility
+* states
+* anti-slop
+* semantic UI
+* loading/error/empty/success
+* frontend quality gates
+
+Use machine-checkable constraints where practical.
+
+Do not game the validators.
+
+---
+
+# 7. REQUIRED SKILL #4
+
+React Frontend Skills:
+
+https://github.com/PyModel/react-frontend-skills
+
+Use the relevant frontend skills for:
+
+* React
+* Next.js
+* UI design
+* web design guidelines
+* responsive behavior
+* performance
+* component architecture
+* frontend quality
+* accessibility
+
+Do NOT blindly apply unrelated backend/testing skills during the design phase.
+
+Use only the relevant frontend/design skills.
+
+---
+
+# 8. ADDITIONAL DESIGN SKILL RESEARCH
+
+Before implementation, inspect whether the following or similar design-oriented skills are useful:
+
+Better Web UI:
+
+https://github.com/aladicf/better-web-ui
+
+Modern Frontend Design:
+
+https://github.com/deveshpunjabi/modern-frontend-skill
+
+Frontend Agent Skills:
+
+https://github.com/hueyexe/frontend-agent-skills
+
+Task-focused frontend design skill:
+
+https://github.com/Junaid-PK/frontend-design-skill
+
+You may use relevant portions where they improve the final result.
+
+DO NOT install dozens of overlapping skills just for quantity.
+
+The goal is:
+
+> HIGH SIGNAL, LOW CONFLICT.
+
+Document which skills were selected and why.
+
+---
+
+# 9. SKILL GOVERNANCE
+
+External skills are advisors.
+
+They are NOT the product owner.
+
+The project documentation takes precedence.
+
+If a skill conflicts with:
+
+* product requirements
+* business decisions
+* accessibility
+* RTL requirements
+* technical constraints
+* existing API assumptions
+* security
+* user workflows
+
+follow the project specification.
+
+Never change business logic because a design skill suggested it.
+
+---
+
+# 10. FIRST DELIVERABLE — PRODUCT DISCOVERY
+
+Before writing substantial frontend code, create:
+
+docs/DESIGN_DISCOVERY.md
+
+It must contain:
+
+1. Product understanding
+2. Customer personas
+3. Staff personas
+4. Admin personas
+5. Customer journeys
+6. Purchase journey
+7. Checkout journey
+8. Order lifecycle
+9. Delivery journey
+10. Return journey
+11. Exchange journey
+12. POS journey
+13. Inventory journey
+14. Purchasing journey
+15. Finance journey
+16. Staff management journey
+17. Notification journey
+18. Information architecture
+19. Navigation hierarchy
+20. Role-specific experiences
+21. Mobile-specific experiences
+22. RTL/LTR considerations
+23. Accessibility considerations
+24. Visual opportunities
+25. UX risks
+26. Design risks
+27. Missing information
+28. Assumptions
+29. Questions that are genuinely blocking
+30. Proposed visual direction
+
+---
+
+# 11. SECOND DELIVERABLE — COMPLETE PAGE INVENTORY
+
+Create:
+
+docs/DESIGN_COVERAGE.md
+
+You MUST discover every required screen from the documentation.
+
+Do not stop at obvious pages.
+
+Think in terms of:
+
+ROUTES
++
+SCREENS
++
+MODALS
++
+DRAWERS
++
+SHEETS
++
+STATES
++
+ROLE VARIATIONS
++
+MOBILE VARIATIONS
+
+---
+
+# 12. CUSTOMER STOREFRONT INVENTORY
+
+At minimum investigate:
+
+* Homepage
+* Product listing
+* Category pages
+* Search
+* Search results
+* Product details
+* Product gallery
+* Cart
+* Checkout
+* Order confirmation
+* Login
+* Register
+* Password recovery if required
+* Customer profile
+* Customer orders
+* Order detail
+* Return request
+* Exchange request
+* Reviews
+* Wishlist if specified
+* Promotions
+* Offers
+* Delivery information
+* Help
+* Contact
+* About
+* Policies
+* Terms
+* Privacy
+* 404
+* other documented customer surfaces
+
+Do not invent pages that are not justified.
+
+Do not omit pages that are justified.
+
+---
+
+# 13. SYSTEM STATES
+
+Every major surface must be considered in:
+
+* loading
+* empty
+* error
+* success
+* disabled
+* unavailable
+* validation error
+* network error
+* unauthorized
+* forbidden
+* not found
+
+Commerce-specific:
+
+* out of stock
+* low stock
+* expired
+* expiring
+* unavailable variant
+* failed checkout
+* failed payment flow if applicable
+* delivery unavailable
+* failed delivery
+* return pending
+* exchange pending
+
+---
+
+# 14. ADMIN INVENTORY
+
+Design the complete internal operations system.
+
+At minimum inspect:
+
+* Admin dashboard
+* Orders
+* Order details
+* Customers
+* Products
+* Product editor
+* Categories
+* Inventory
+* Inventory movements
+* Stock adjustment
+* Purchasing
+* Purchase orders
+* Receiving
+* Batches
+* Expiry
+* Delivery
+* Shipments
+* Returns
+* Exchanges
+* Refunds
+* POS
+* Cash sessions
+* Cash reconciliation
+* Finance
+* Expenses
+* Profitability
+* Reports
+* KPIs
+* Coupons
+* Reviews moderation
+* Staff
+* Roles
+* Permissions
+* Notifications
+* Audit
+* Settings
+
+Again:
+
+derive the real inventory from the documentation.
+
+---
+
+# 15. DO NOT FORGET MODALS AND DRAWERS
+
+A common AI mistake is designing routes but forgetting operational UI.
+
+Inventory must include:
+
+* confirmation dialogs
+* destructive confirmations
+* edit dialogs
+* filter drawers
+* mobile sheets
+* product selectors
+* customer selectors
+* order action menus
+* stock adjustment dialogs
+* return dialogs
+* exchange dialogs
+* POS dialogs
+* notification panels
+* command/search interfaces
+
+Every important workflow surface must have a visual design.
+
+---
+
+# 16. DESIGN COVERAGE MATRIX
+
+For every discovered surface, track:
+
+| Surface | Desktop | Mobile | RTL | LTR | Loading | Empty | Error | Success | A11y | QA |
+| ------- | ------- | ------ | --- | --- | ------- | ----- | ----- | ------- | ---- | -- |
+
+Nothing can be marked complete unless it has been reviewed.
+
+---
+
+# 17. DESIGN SYSTEM
+
+Create:
+
+docs/DESIGN_SYSTEM.md
+
+The design system must define:
+
+* brand personality
+* visual direction
+* colors
+* semantic color tokens
+* typography
+* Arabic typography
+* French typography
+* English typography if applicable
+* spacing
+* grid
+* breakpoints
+* radius
+* shadows
+* borders
+* elevation
+* icons
+* buttons
+* inputs
+* forms
+* cards
+* product cards
+* pricing
+* badges
+* status
+* tables
+* charts
+* navigation
+* sidebar
+* mobile navigation
+* dialogs
+* drawers
+* sheets
+* notifications
+* toasts
+* empty states
+* loading states
+* error states
+* motion
+* accessibility
+
+---
+
+# 18. BRAND DIRECTION
+
+PLAZZA NUTRITION should feel:
+
+* premium
+* athletic
+* powerful
+* modern
+* credible
+* energetic
+* disciplined
+* performance-oriented
+* confident
+* sophisticated
+
+But NOT:
+
+* childish
+* gamer-like
+* crypto-like
+* generic SaaS
+* cheap supplement store
+* generic AI landing page
+
+---
+
+# 19. BRAND ORIGINALITY
+
+Do NOT clone:
+
+* Nike
+* Gymshark
+* MyProtein
+* GNC
+* Optimum Nutrition
+* any other brand
+
+You may learn from industry conventions.
+
+But Plazza Nutrition must have its own visual language.
+
+---
+
+# 20. VISUAL IDENTITY
+
+Explore a distinctive visual language around:
+
+* PN identity
+* performance
+* nutrition
+* energy
+* premium surfaces
+* controlled orange accent
+* sophisticated dark/light relationships
+* product photography
+* editorial composition
+* athletic geometry
+* intentional asymmetry
+* strong typography
+
+Dark + orange may remain part of the identity,
+but DO NOT simply make everything black and orange.
+
+Build a complete semantic color system.
+
+---
+
+# 21. TYPOGRAPHY
+
+Typography is a major part of the brand.
+
+Arabic must look intentionally designed.
+
+French must feel equally polished.
+
+Define:
+
+* display
+* hero
+* H1
+* H2
+* H3
+* body
+* label
+* caption
+* navigation
+* price
+* statistics
+* tables
+* buttons
+
+Avoid generic font choices just because they are common.
+
+Choose typography based on:
+
+* Arabic glyph quality
+* readability
+* personality
+* hierarchy
+* performance
+* brand compatibility
+
+---
+
+# 22. HOMEPAGE
+
+The homepage may be completely redesigned.
+
+Do NOT preserve the current weak structure.
+
+The homepage must immediately communicate:
+
+WHAT PLAZZA NUTRITION IS
++
+WHAT IT SELLS
++
+WHY IT IS TRUSTWORTHY
++
+HOW TO SHOP
+
+Possible structure:
+
+Navbar
+↓
+Hero
+↓
+Trust/value strip
+↓
+Categories
+↓
+Best sellers
+↓
+Campaign/promotion
+↓
+Featured products
+↓
+Why Plazza Nutrition
+↓
+Social proof
+↓
+Final CTA
+↓
+Footer
+
+But choose the final structure based on product requirements and actual content.
+
+---
+
+# 23. HERO
+
+The hero must NOT look like:
+
+Huge empty space
++
+centered title
++
+two buttons
++
+three generic cards.
+
+Explore stronger art direction:
+
+* product composition
+* asymmetric layout
+* editorial split
+* product stack
+* strong imagery
+* controlled depth
+* cinematic crop
+* athletic geometry
+* layered visual hierarchy
+
+The hero should be memorable.
+
+But do not sacrifice usability for visual effects.
+
+---
+
+# 24. PRODUCT-FIRST EXPERIENCE
+
+This is an ecommerce business.
+
+Products must visually exist.
+
+The user should see:
+
+* products
+* categories
+* prices
+* variants
+* availability
+* purchase actions
+
+early in the journey.
+
+Do not build a beautiful marketing site that hides the actual store.
+
+---
+
+# 25. PRODUCT CARD
+
+Product cards should be premium.
+
+Potential information:
+
+* product image
+* brand
+* product name
+* size
+* variant
+* price
+* old price
+* discount
+* rating
+* availability
+* add to cart
+* quick action where appropriate
+
+Do not overload.
+
+The product remains the hero.
+
+---
+
+# 26. PRODUCT DETAIL
+
+Design:
+
+* gallery
+* image zoom if justified
+* product title
+* brand
+* price
+* old price
+* variant
+* size
+* quantity
+* availability
+* purchase CTA
+* delivery
+* product details
+* nutrition information if available
+* ingredients if available
+* usage information if available
+* reviews
+* related products
+
+Do NOT fabricate nutritional claims.
+
+Use actual documented product data.
+
+---
+
+# 27. CART
+
+Cart must feel:
+
+* clear
+* premium
+* trustworthy
+* efficient
+
+Include:
+
+* image
+* product
+* variant
+* quantity
+* price
+* subtotal
+* delivery
+* total
+* coupon if supported
+* checkout CTA
+
+Design the empty cart too.
+
+---
+
+# 28. CHECKOUT
+
+Checkout must prioritize:
+
+* clarity
+* trust
+* speed
+* confidence
+
+Include the actual documented:
+
+* customer information
+* phone
+* address
+* wilaya
+* commune where required
+* delivery method
+* shipping
+* payment
+* COD
+* order summary
+* confirmation
+
+Do not change the business rules.
+
+---
+
+# 29. CUSTOMER ACCOUNT
+
+Design:
+
+* profile
+* orders
+* order detail
+* returns
+* exchanges
+* reviews
+* addresses if applicable
+* account settings
+
+It should visually belong to the same brand.
+
+---
+
+# 30. ADMIN
+
+The admin should NOT look like a generic dashboard.
+
+It should be:
+
+* operational
+* dense where necessary
+* fast
+* clear
+* reliable
+* structured
+
+The design system remains shared with the storefront,
+but information density changes.
+
+---
+
+# 31. ADMIN DASHBOARD
+
+The dashboard should answer:
+
+WHAT NEEDS ATTENTION?
+
+WHAT HAPPENED?
+
+WHAT IS CHANGING?
+
+WHAT REQUIRES ACTION?
+
+Only show metrics that are actually supported by the product.
+
+Do not invent KPIs.
+
+---
+
+# 32. ORDERS
+
+Design for operational speed.
+
+Include:
+
+* filters
+* search
+* statuses
+* customer
+* payment
+* delivery
+* amount
+* date
+* actions
+
+Order detail should visually distinguish:
+
+* order identity
+* customer
+* items
+* totals
+* payment
+* delivery
+* lifecycle
+* history
+* actions
+
+---
+
+# 33. POS
+
+POS is a specialized interface.
+
+Optimize for:
+
+* scanning
+* searching
+* selecting products
+* cart
+* quantities
+* totals
+* payment
+* cash session
+* speed
+* keyboard
+* mouse
+* touch
+
+Do not make POS decorative.
+
+It should be fast.
+
+---
+
+# 34. INVENTORY
+
+Design inventory around clarity.
+
+Differentiate:
+
+* available
+* low stock
+* out of stock
+* reserved
+* expired
+* expiring
+* damaged
+* adjustment
+
+Do not rely on color alone.
+
+---
+
+# 35. PURCHASING / RECEIVING
+
+Design:
+
+* suppliers
+* purchase orders
+* receiving
+* expected quantity
+* received quantity
+* discrepancy
+* cost
+* batch
+* expiry
+
+Keep operational hierarchy clear.
+
+---
+
+# 36. FINANCE
+
+Finance must feel precise.
+
+Use:
+
+* tabular numbers
+* clear periods
+* consistent decimal formatting
+* meaningful charts
+* clear totals
+* strong hierarchy
+
+Charts must communicate information.
+
+No decorative charts.
+
+---
+
+# 37. DELIVERY
+
+Design:
+
+* shipment
+* delivery state
+* tracking
+* provider
+* destination
+* exception
+* failed delivery
+* returns
+
+Do not invent undocumented ZR Express features.
+
+---
+
+# 38. REVIEWS
+
+Customer:
+
+* readable
+* trustworthy
+* clean
+
+Admin:
+
+* moderation-focused
+* operational
+* status-driven
+
+Do not create fake reviews.
+
+---
+
+# 39. COUPONS
+
+Promotion UI should feel premium.
+
+Avoid:
+
+SALE SALE SALE
+everywhere.
+
+Use:
+
+* price hierarchy
+* discount hierarchy
+* conditions
+* validity
+* CTA
+
+---
+
+# 40. RTL
+
+Arabic is first-class.
+
+Test:
+
+* navigation
+* icons
+* chevrons
+* arrows
+* breadcrumbs
+* forms
+* tables
+* dialogs
+* drawers
+* cards
+* product gallery
+* checkout
+* POS
+* charts
+* notifications
+
+RTL is not:
+
+"flip everything horizontally."
+
+It is a complete layout and interaction consideration.
+
+---
+
+# 41. RESPONSIVE
+
+Test at:
+
+375px
+390px
+430px
+768px
+1024px
+1280px
+1440px
+wide desktop
+
+Do not simply collapse desktop.
+
+Design mobile intentionally.
+
+---
+
+# 42. ACCESSIBILITY
+
+Accessibility is a hard requirement.
+
+Include:
+
+* semantic HTML
+* keyboard navigation
+* visible focus
+* proper labels
+* accessible forms
+* contrast
+* screen-reader support
+* reduced motion
+* correct button semantics
+* accessible icon buttons
+* no color-only status
+
+Do not write comments claiming accessibility.
+
+Implement it.
+
+---
+
+# 43. MOTION
+
+Motion must have purpose.
+
+Use for:
+
+* feedback
+* transitions
+* navigation
+* add-to-cart
+* drawers
+* dialogs
+* state changes
+* subtle page entrance
+
+Avoid:
+
+* animation everywhere
+* excessive parallax
+* unnecessary 3D
+* gimmicky cursors
+* slow transitions
+* constant floating elements
+
+Respect:
+
+prefers-reduced-motion.
+
+---
+
+# 44. IMAGE STRATEGY
+
+Inspect the actual available assets.
+
+Use real assets when available.
+
+If actual product assets are unavailable:
+
+Use honest visual placeholders or controlled design compositions.
+
+Do NOT invent actual products.
+
+Do NOT fabricate packaging.
+
+Do NOT invent brands.
+
+Do NOT present generated product images as real inventory.
+
+---
+
+# 45. DESIGN SYSTEM COMPONENTS
+
+Create reusable frontend primitives where justified:
+
+* Button
+* IconButton
+* Input
+* Select
+* Search
+* Badge
+* Status
+* Card
+* ProductCard
+* Price
+* ProductGallery
+* Breadcrumb
+* Tabs
+* Dialog
+* Drawer
+* Sheet
+* Toast
+* EmptyState
+* LoadingState
+* ErrorState
+* DataTable
+* Metric
+* Chart
+* Timeline
+* FilterBar
+* Sidebar
+* Topbar
+* MobileNavigation
+* QuantityControl
+* CartItem
+* OrderSummary
+* CheckoutSection
+* FormSection
+
+Do not over-abstract.
+
+Use real repetition as the basis for abstraction.
+
+---
+
+# 46. DESIGN TOKENS
+
+Centralize:
+
+* colors
+* typography
+* spacing
+* radius
+* shadows
+* motion
+* breakpoints
+* z-index
+
+Avoid random one-off values.
+
+---
+
+# 47. ANTI-SLOP WALL
+
+Before approving ANY screen ask:
+
+Does this look like a real brand?
+
+Does this look like a real product?
+
+Does this look intentionally designed?
+
+Or does it look like:
+
+"AI generated SaaS template"?
+
+Reject:
+
+* generic gradient blobs
+* purple/pink gradients
+* excessive glassmorphism
+* endless rounded cards
+* excessive borders
+* giant empty hero
+* generic 3-column feature blocks
+* fake testimonials
+* fake metrics
+* Acme
+* John Doe
+* random $99.99
+* random emojis
+* generic shadcn styling
+* identical layouts everywhere
+
+---
+
+# 48. DIFFERENT SCREENS NEED DIFFERENT DENSITY
+
+Do NOT make every page visually identical.
+
+Storefront:
+
+premium / editorial / conversion-focused
+
+Product:
+
+visual / persuasive
+
+Checkout:
+
+calm / trustworthy
+
+POS:
+
+fast / dense
+
+Inventory:
+
+operational / dense
+
+Finance:
+
+precise / analytical
+
+Admin:
+
+information-rich / structured
+
+The design system remains consistent.
+
+The density adapts to the task.
+
+---
+
+# 49. VISUAL QA
+
+Create:
+
+docs/DESIGN_QA.md
+
+For each major screen verify:
+
+* desktop
+* tablet
+* mobile
+* RTL
+* LTR
+* loading
+* empty
+* error
+* success
+* accessibility
+* interaction
+* visual consistency
+
+Use screenshots whenever the environment supports browser capture.
+
+Do not declare success based only on build success.
+
+---
+
+# 50. BROWSER VERIFICATION
+
+If browser automation is available:
+
+Run the application.
+
+Visit the major surfaces.
+
+Inspect:
+
+* console errors
+* layout
+* responsive behavior
+* navigation
+* interaction
+* overflow
+* broken images
+* typography
+* RTL
+* forms
+* buttons
+* dialogs
+* mobile navigation
+
+Use actual rendered output.
+
+Do not trust code alone.
+
+---
+
+# 51. NO FORGOTTEN PAGE RULE
+
+This is one of the most important requirements.
+
+A page is NOT complete until it appears in:
+
+docs/DESIGN_COVERAGE.md
+
+and has a status.
+
+A surface cannot be considered "done" merely because another page looks good.
+
+This includes:
+
+* routes
+* modals
+* drawers
+* sheets
+* system states
+* role-specific screens
+* mobile variants
+
+---
+
+# 52. NO ONE-PAGE OPTIMIZATION
+
+Do not spend 80% of the effort on Home.
+
+The quality bar applies to the entire product.
+
+The final visual quality must be coherent across:
+
+Storefront
+→ Product
+→ Cart
+→ Checkout
+→ Account
+→ Orders
+→ Returns
+→ POS
+→ Inventory
+→ Purchasing
+→ Delivery
+→ Finance
+→ Staff
+→ Admin
+→ Settings
+
+---
+
+# 53. FINAL ANTIGRAVITY CONTRACT
+
+This is critical.
+
+Create:
+
+docs/ANTIGRAVITY_FRONTEND_RULES.md
+
+This document will be used later by Google Antigravity.
+
+It MUST instruct future agents:
+
+Before modifying frontend UI:
+
+1. Read DESIGN_DISCOVERY.md
+2. Read DESIGN_SYSTEM.md
+3. Read DESIGN_COVERAGE.md
+4. Read DESIGN_QA.md
+5. Read DESIGN_DECISIONS.md
+6. Read ANTIGRAVITY_FRONTEND_RULES.md
+7. Inspect existing components
+8. Reuse design tokens
+9. Preserve typography
+10. Preserve spacing
+11. Preserve component hierarchy
+12. Preserve responsive behavior
+13. Preserve RTL/LTR behavior
+14. Preserve motion language
+15. Preserve accessibility
+16. Preserve product visual identity
+17. Never revert to generic shadcn styling
+18. Never introduce random colors
+19. Never create unnecessary one-off components
+20. Never modify business logic for visual convenience
+21. Never invent API behavior
+22. Never invent product data
+23. Never redesign completed surfaces without a documented reason
+
+---
+
+# 54. ANTIGRAVITY MUST BE ABLE TO CONTINUE THE DESIGN
+
+The future engineering agent should be able to open the repository months later and understand:
+
+"What does Plazza Nutrition look like?"
+
+without asking Replit.
+
+Therefore document:
+
+* design tokens
+* typography
+* spacing
+* colors
+* components
+* layout rules
+* mobile rules
+* RTL rules
+* motion rules
+* image rules
+* state rules
+* admin rules
+* POS rules
+* ecommerce rules
+
+---
+
+# 55. IMPORTANT — REPLIT OWNS THE VISUAL FOUNDATION
+
+During this phase:
+
+Replit is responsible for creating the frontend visual foundation.
+
+Antigravity will later continue engineering.
+
+Therefore:
+
+DO NOT leave visual decisions undocumented.
+
+DO NOT rely on the model's memory.
+
+DO NOT assume another agent will "understand the vibe."
+
+Encode the visual system in:
+
+* code
+* tokens
+* components
+* documentation
+* screenshots
+* QA rules
+
+---
+
+# 56. BACKEND BOUNDARY
+
+This is DESIGN-FIRST.
+
+Do not create a fake backend simply to make screenshots.
+
+Do not build fake business logic.
+
+If the frontend needs mock data for visual development:
+
+* make the mock layer explicit
+* keep it isolated
+* make it replaceable
+* do not pretend it is production backend functionality
+
+Document every mock.
+
+The future Antigravity phase will replace visual-development mocks with real APIs.
+
+---
+
+# 57. API BOUNDARY
+
+Design the frontend around the documented future API contracts.
+
+Do not invent undocumented endpoints.
+
+If API contracts are not yet implemented:
+
+Create clean service boundaries/interfaces that can later connect to the real backend.
+
+Do not couple UI components directly to fake implementation details.
+
+---
+
+# 58. ARCHITECTURE BOUNDARY
+
+The frontend should be structured so the future engineering work can integrate it.
+
+Prefer:
+
+* clear feature boundaries
+* reusable components
+* typed models
+* service layer
+* predictable state management
+* clear API boundary
+* localization boundary
+* design tokens
+
+Do not create a frontend monolith that is impossible to integrate.
+
+---
+
+# 59. LOCALIZATION
+
+Prepare the frontend for:
+
+Arabic
+French
+
+RTL/LTR.
+
+Do not hardcode strings everywhere.
+
+Keep translation structure clean.
+
+Arabic copy should be natural and professional.
+
+French copy should be natural and professional.
+
+Do not use machine-like placeholder language if real copy can be derived from the documentation.
+
+---
+
+# 60. PRODUCT CONTENT
+
+Use actual documented product concepts.
+
+Potential supplement categories may include things such as:
+
+* protein
+* creatine
+* pre-workout
+* vitamins
+* mass gainers
+* accessories
+
+BUT:
+
+Only use categories/products supported by the project data/specification.
+
+Do not invent a real catalog.
+
+---
+
+# 61. PERFORMANCE
+
+Premium design must still be fast.
+
+Avoid unnecessary:
+
+* heavy libraries
+* massive images
+* animation engines
+* client-side rendering everywhere
+* duplicated data fetching
+* huge bundles
+
+Use modern Next.js/React patterns appropriate to the actual stack.
+
+Prefer:
+
+* optimized images
+* lazy loading
+* server rendering where appropriate
+* CSS over JS when sufficient
+* selective client components
+* sensible code splitting
+
+---
+
+# 62. FINAL DOCUMENTATION
+
+Create:
+
+docs/DESIGN_DISCOVERY.md
+docs/DESIGN_SYSTEM.md
+docs/DESIGN_COVERAGE.md
+docs/DESIGN_QA.md
+docs/DESIGN_DECISIONS.md
+docs/ANTIGRAVITY_FRONTEND_RULES.md
+
+Optionally:
+
+docs/COMPONENT_INVENTORY.md
+docs/RESPONSIVE_GUIDE.md
+docs/RTL_GUIDE.md
+docs/VISUAL_ASSET_GUIDE.md
+
+---
+
+# 63. GIT
+
+Use a dedicated branch.
+
+Recommended:
+
+design-first/plazza-frontend
+
+Do NOT:
+
+* force push
+* rewrite history
+* delete documentation
+* destroy previous branches
+* merge blindly
+
+Commit logically.
+
+Example:
+
+docs: add product design discovery
+
+docs: add design system
+
+docs: add design coverage matrix
+
+feat(web): establish brand shell
+
+feat(web): build storefront foundation
+
+feat(web): build product experience
+
+feat(web): build cart and checkout
+
+feat(web): build customer account
+
+feat(web): build operations shell
+
+feat(web): build orders and customers
+
+feat(web): build POS interface
+
+feat(web): build inventory interface
+
+feat(web): build purchasing interface
+
+feat(web): build finance interface
+
+feat(web): build staff and settings
+
+feat(web): complete responsive and RTL pass
+
+docs: add Antigravity frontend rules
+
+test(web): add frontend QA checks
+
+---
+
+# 64. DEVELOPMENT ORDER
+
+Follow this order:
+
+PHASE 0
+Read documentation.
+
+PHASE 1
+Install/read design skills.
+
+PHASE 2
+Product discovery.
+
+PHASE 3
+Complete screen inventory.
+
+PHASE 4
+Design system.
+
+PHASE 5
+Brand direction.
+
+PHASE 6
+Shared primitives.
+
+PHASE 7
+Application shell.
+
+PHASE 8
+Storefront.
+
+PHASE 9
+Product experience.
+
+PHASE 10
+Cart.
+
+PHASE 11
+Checkout.
+
+PHASE 12
+Customer account.
+
+PHASE 13
+Orders/customer operations.
+
+PHASE 14
+Admin shell.
+
+PHASE 15
+POS.
+
+PHASE 16
+Inventory.
+
+PHASE 17
+Purchasing/receiving.
+
+PHASE 18
+Delivery.
+
+PHASE 19
+Returns/exchanges.
+
+PHASE 20
+Finance/profitability.
+
+PHASE 21
+Reports.
+
+PHASE 22
+Staff/RBAC presentation.
+
+PHASE 23
+Notifications/audit/settings.
+
+PHASE 24
+All system states.
+
+PHASE 25
+Mobile.
+
+PHASE 26
+RTL/LTR.
+
+PHASE 27
+Accessibility.
+
+PHASE 28
+Performance.
+
+PHASE 29
+Anti-slop review.
+
+PHASE 30
+Browser visual QA.
+
+PHASE 31
+Documentation.
+
+PHASE 32
+Antigravity handoff.
+
+DO NOT stop after Phase 8.
+
+DO NOT declare the project complete because the homepage is impressive.
+
+---
+
+# 65. DO NOT ASK FOR PERMISSION FOR EVERY SMALL DECISION
+
+You have enough information to make most visual decisions.
+
+Use:
+
+* documentation
+* product context
+* design skills
+* established design system
+* UX principles
+
+to make reasonable decisions.
+
+Only stop for genuine blockers or contradictory requirements.
+
+---
+
+# 66. BUT DO NOT INVENT BUSINESS DECISIONS
+
+If the documentation genuinely does not define something:
+
+Do not silently invent business behavior.
+
+For visual presentation:
+
+you may make a reversible design decision.
+
+For business logic:
+
+document the gap.
+
+---
+
+# 67. FINAL QUALITY GATE
+
+Before declaring the design phase complete:
+
+## BRAND
+
+[ ] Distinct Plazza Nutrition identity
+[ ] No generic AI aesthetic
+[ ] Typography feels intentional
+[ ] Color system is coherent
+[ ] Product imagery is strong
+
+## STOREFRONT
+
+[ ] Homepage
+[ ] Categories
+[ ] Products
+[ ] Search
+[ ] Product detail
+[ ] Cart
+[ ] Checkout
+[ ] Customer account
+[ ] Orders
+[ ] Returns
+[ ] Exchanges
+[ ] Reviews
+[ ] Promotions
+
+## OPERATIONS
+
+[ ] Dashboard
+[ ] Orders
+[ ] Customers
+[ ] Products
+[ ] Inventory
+[ ] Purchasing
+[ ] Receiving
+[ ] Batches
+[ ] Delivery
+[ ] POS
+[ ] Cash sessions
+[ ] Returns
+[ ] Exchanges
+[ ] Finance
+[ ] Reports
+[ ] Staff
+[ ] Notifications
+[ ] Audit
+[ ] Settings
+
+## STATES
+
+[ ] Loading
+[ ] Empty
+[ ] Error
+[ ] Success
+[ ] Disabled
+[ ] Unauthorized
+[ ] Forbidden
+[ ] Not found
+[ ] Network failure
+
+## QUALITY
+
+[ ] Mobile
+[ ] Tablet
+[ ] Desktop
+[ ] RTL
+[ ] LTR
+[ ] Accessibility
+[ ] Performance
+[ ] Browser QA
+[ ] No horizontal overflow
+[ ] No obvious placeholders
+[ ] No fake business data
+[ ] No forgotten page
+
+---
+
+# 68. FINAL REPORT
+
+At completion produce:
+
+PLAZZA NUTRITION DESIGN TRANSFORMATION REPORT
+
+Include:
+
+1. What was discovered
+2. Skills installed
+3. Skills actually used
+4. Design philosophy
+5. Brand identity
+6. Typography
+7. Color system
+8. Component system
+9. Storefront
+10. Ecommerce
+11. Customer account
+12. POS
+13. Admin
+14. Inventory
+15. Purchasing
+16. Delivery
+17. Finance
+18. Staff
+19. Responsive work
+20. RTL/LTR work
+21. Accessibility
+22. Motion
+23. Performance
+24. State coverage
+25. QA results
+26. Known limitations
+27. Mock boundaries
+28. Antigravity handoff
+29. Remaining work
+
+---
+
+# 69. FINAL HANDOFF PRINCIPLE
+
+The final repository produced by Replit will later be downloaded and continued in Google Antigravity.
+
+Therefore the repository must communicate two things clearly:
+
+### WHAT THE PRODUCT LOOKS LIKE
+
+through:
+
+* actual frontend
+* design system
+* components
+* screenshots
+* tokens
+
+AND:
+
+### HOW THE PRODUCT MUST CONTINUE TO LOOK
+
+through:
+
+* DESIGN_SYSTEM.md
+* DESIGN_QA.md
+* ANTIGRAVITY_FRONTEND_RULES.md
+* component conventions
+* token conventions
+* responsive rules
+* RTL rules
+* anti-slop rules
+
+---
+
+# 70. FINAL COMMAND
+
+START WITH DISCOVERY.
+
+DO NOT START WITH THE HOMEPAGE.
+
+DO NOT START WITH RANDOM COMPONENTS.
+
+DO NOT START WITH A TEMPLATE.
+
+FIRST UNDERSTAND THE COMPLETE PRODUCT.
+
+THEN:
+
+DISCOVER
+→
+PLAN
+→
+INSTALL SKILLS
+→
+DESIGN SYSTEM
+→
+BRAND DIRECTION
+→
+COMPONENT FOUNDATION
+→
+COMPLETE FRONTEND
+→
+ALL PAGES
+→
+ALL STATES
+→
+MOBILE
+→
+RTL/LTR
+→
+ACCESSIBILITY
+→
+PERFORMANCE
+→
+VISUAL QA
+→
+DOCUMENTATION
+→
+ANTIGRAVITY HANDOFF.
+
+The objective is not:
+
+"make a nice website."
+
+The objective is:
+
+> BUILD THE COMPLETE VISUAL WORLD OF PLAZZA NUTRITION.
+
+Every screen must feel like it belongs to the same product.
+
+Every workflow must be visually complete.
+
+Every role must have a coherent interface.
+
+Every important state must be designed.
+
+Every mobile surface must be intentional.
+
+Arabic must be first-class.
+
+The design must be memorable without becoming gimmicky.
+
+The result must look like a serious, premium, distinctive sports-nutrition commerce company.
+
+DO NOT SETTLE FOR GENERIC AI UI.
+
+MAKE PLAZZA NUTRITION LOOK DESIGNED.
+MAKE IT FEEL REAL.
+MAKE THE WHOLE PRODUCT COHERENT.
+DO NOT FORGET ANY PART OF IT.
